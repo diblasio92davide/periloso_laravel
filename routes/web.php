@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/ciao', function() {
+
+//    return view('ciao')
+//        ->with('title', 'CIAO!!!11');
+
+    return view('ciao', [
+        'title' => 'ciao 123',
+    ]);
+});
+
+
+Route::resource('/groups', 'GroupController');
+
