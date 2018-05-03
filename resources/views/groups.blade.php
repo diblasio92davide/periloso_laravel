@@ -11,27 +11,27 @@
         </thead>
         <tbody>
             @foreach($groups as $group)
-                    <tr>
-                        <td>
-                            <a href="/groups/{{ $group->id }}/edit">
-                                {{ $group->id }}
-                            </a>
-                        </td>
-                        <td>
-                            <a href="/groups/{{ $group->id }}/edit">
-                                {{ $group->name }}
-                            </a>
-                        </td>
-                        <td>
-                            <form action="/groups/{{ $group->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" class="btn-outline-danger" value="CANCELLA">
-                            </form>
-                        </td>
-                    </tr>
-                </a>
+                <tr>
+                    <td>
+                        <a href="/groups/{{ $group->id }}/edit">
+                            {{ $group->id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/groups/{{ $group->id }}/edit">
+                            {{ $group->name }}
+                        </a>
+                    </td>
+                    <td>
+                        <form action="/groups/{{ $group->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" class="btn-outline-danger" value="CANCELLA">
+                        </form>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="/groups/create" class="btn btn-info float-right">Aggiungi</a>
 @endsection

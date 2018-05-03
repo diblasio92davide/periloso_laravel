@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // Gestione eventi model
+    public static function boot()
+    {
+        parent::boot();
+
+        // Ad ogni salvataggio del model eseguo questo:
+        static::saving(function($user) {
+            if ($user->isDirty('password')) {
+                $user->attributes['password'] = \Hash::make($user->attributes['password']);
+            }
+        });
+    }
 }
