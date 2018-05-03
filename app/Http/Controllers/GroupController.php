@@ -26,11 +26,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $group = Group::create([
-            'name' => 'admin',
-        ]);
-
-        dd($group);
+        return view('group-create');
     }
 
     /**
@@ -41,7 +37,9 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Group::create(   $request->all()    );
+
+        return redirect('/groups');
     }
 
     /**

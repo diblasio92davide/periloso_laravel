@@ -25,6 +25,6 @@ Route::get('/ciao', function() {
     ]);
 });
 
-
+// http://server/groups
 Route::resource('/groups', 'GroupController');
 
